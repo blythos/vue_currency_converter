@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     computed: {
       convertedAmount: function () {
-        return this.firstCurrency * this.userAmount;
+        return this.firstCurrency * this.userAmount / this.secondCurrency;
       }
     },
     methods: {
