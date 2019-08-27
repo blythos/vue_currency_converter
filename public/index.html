@@ -6,11 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/bundle.js"></script>
-  <title>Starter</title>
+  <title>Currency Converter</title>
 </head>
 <body>
   <h1>Currency Converter</h1>
   <div id="app" >
+    <div id="currencyConverter">
+      Convert EUR<input v-model="userAmount" type="number"> to
+      <select v-model="firstCurrency" name="" id="">
+        <option value="">EUR</option>
+        <option v-for="(value, name) in currencies" :value="value">{{name}}</option>
+      </select>
+      <button @click="convertCurrency">CONVERT</button>
+      <h2>Conversion: {{convertedAmount}}</h2>
+    </div>
     <ul>
       <li v-for="(value, name) in currencies">{{name}}: {{value}}</li>
     </ul>

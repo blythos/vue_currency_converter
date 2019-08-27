@@ -4,7 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
   new Vue({
     el: '#app',
     data: {
-      currencies: {}
+      currencies: {},
+      firstCurrency: 0,
+      secondCurrency: 1,
+      userAmount: null,
+      convertedAmount: null
     },
     mounted() {
       this.fetchCurrencies();
@@ -13,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
       fetchCurrencies: function() {
         fetch('https://api.exchangeratesapi.io/latest')
         .then(res => res.json()).then(data => this.currencies = data.rates)
+      },
+      convertCurrency: function() {
+        this.convertedAmount = this.firstCurrency * this.userAmount;
       }
     }
   });
