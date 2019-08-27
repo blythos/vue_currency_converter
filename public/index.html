@@ -13,17 +13,18 @@
   <div id="app" >
     <div id="currencyConverter">
       Convert
-      <select v-model="secondCurrency" name="" id="">
+      <select v-model="secondCurrency">
         <option value="1">EUR</option>
         <option v-for="(value, name) in currencies" :value="value">{{name}}</option>
       </select>
       <input v-model="userAmount" type="number"> to
-      <select v-model="firstCurrency" name="" id="">
+      <select v-model="firstCurrency">
         <option value="1">EUR</option>
         <option v-for="(value, name) in currencies" :value="value">{{name}}</option>
       </select>
-      <h2 v-if="convertedAmount">Conversion: {{convertedAmount | roundDown}}</h2>
+      <h2 v-if="convertedAmount">Conversion: {{convertedAmount | roundToTwo}}</h2>
     </div>
+    <h3>Conversion Rates From Euro:</h3>
     <ul>
       <li v-for="(value, name) in currencies">{{name}}: {{value}}</li>
     </ul>

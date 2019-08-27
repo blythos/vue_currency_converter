@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       userAmount: null,
     },
     filters: {
-      roundDown: function(number) {
+      roundToTwo: function(number) {
         return Math.round(number * 100) / 100
       }
     },
