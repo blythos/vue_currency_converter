@@ -14,10 +14,14 @@
     <div id="currencyConverter">
       Convert EUR<input v-model="userAmount" type="number"> to
       <select v-model="firstCurrency" name="" id="">
-        <option value="">EUR</option>
+        <option value="1">EUR</option>
         <option v-for="(value, name) in currencies" :value="value">{{name}}</option>
       </select>
-      <button @click="convertCurrency">CONVERT</button>
+      from
+      <select v-model="secondCurrency" name="" id="">
+        <option value="1">EUR</option>
+        <option v-for="(value, name) in currencies" :value="value">{{name}}</option>
+      </select>
       <h2>Conversion: {{convertedAmount}}</h2>
     </div>
     <ul>

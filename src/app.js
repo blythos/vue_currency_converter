@@ -6,21 +6,22 @@ document.addEventListener('DOMContentLoaded', () => {
     data: {
       currencies: {},
       firstCurrency: 0,
-      secondCurrency: 1,
+      secondCurrency: 0,
       userAmount: null,
-      convertedAmount: null
     },
     mounted() {
       this.fetchCurrencies();
+    },
+    computed: {
+      convertedAmount: function () {
+        return this.firstCurrency * this.userAmount;
+      }
     },
     methods: {
       fetchCurrencies: function() {
         fetch('https://api.exchangeratesapi.io/latest')
         .then(res => res.json()).then(data => this.currencies = data.rates)
       },
-      convertCurrency: function() {
-        this.convertedAmount = this.firstCurrency * this.userAmount;
-      }
     }
   });
 })
