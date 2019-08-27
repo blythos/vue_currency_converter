@@ -9,8 +9,11 @@
   <title>Starter</title>
 </head>
 <body>
+  <h1>Currency Converter</h1>
   <div id="app" >
-
+    <ul>
+      <li v-for="(value, name) in currencies">{{name}}: {{value}}</li>
+    </ul>
   </div>
 </body>
 </html>
