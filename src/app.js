@@ -9,12 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
       secondCurrency: 0,
       userAmount: null,
     },
+    filters: {
+      roundDown: function(number) {
+        return Math.round(number * 100) / 100
+      }
+    },
     mounted() {
       this.fetchCurrencies();
     },
     computed: {
       convertedAmount: function () {
-        return this.firstCurrency * this.userAmount / this.secondCurrency;
+        return this.firstCurrency * (this.userAmount / this.secondCurrency);
       }
     },
     methods: {

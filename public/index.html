@@ -22,7 +22,7 @@
         <option value="1">EUR</option>
         <option v-for="(value, name) in currencies" :value="value">{{name}}</option>
       </select>
-      <h2>Conversion: {{convertedAmount}}</h2>
+      <h2 v-if="convertedAmount">Conversion: {{convertedAmount | roundDown}}</h2>
     </div>
     <ul>
       <li v-for="(value, name) in currencies">{{name}}: {{value}}</li>
